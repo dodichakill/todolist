@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TodoList</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body>
+    <div class="center">
+        <div class="button">
+            <span class="text">ToDoList</span>
+            <span class="icon"><i class="fas fa-sort-down"></i></span>
+        </div>
+        <div class="field">
+            <input type="text" required placeholder="add new todolist">
+            <span class="add-btn">ADD</span>
+        </div>
+        <ul>
+            <li><span><i class="fa fa-trash"></i></span>beli komputer baru</li>
+            <li><span><i class="fa fa-trash"></i></span>beli Hardisk 1 TB baru</li>
+            <li><span><i class="fa fa-trash"></i></span>beli Antigores laptop</li>
+            <li><span><i class="fa fa-trash"></i></span>beli baju casual</li>
+            <li><span><i class="fa fa-trash"></i></span>beli meja belajar</li>
+        </ul>
+    </div>
+    <script src="js/jquery-3.5.0.js"></script>
+    <script>
+         $('.add-btn').click(function(){
+            $('ul').append("<li><span><i class='fa fa-trash'></i></span>" +  $('input').val() + "</li>");
+        });
+        $('ul').on("click", 'span', function(){
+            $(this).parent().fadeOut(500, function(){
+                $(this).remove();
+            });
+        });
+        $('.icon').click(function(){
+            $('.field').toggleClass("hide");
+        });
+    </script>
+</body>
+</html>
